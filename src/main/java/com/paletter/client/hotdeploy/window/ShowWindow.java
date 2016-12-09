@@ -3,7 +3,6 @@ package com.paletter.client.hotdeploy.window;
 import com.melloware.jintellitype.JIntellitype;
 import com.melloware.jintellitype.JIntellitype64;
 import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
-import com.paletter.client.hotdeploy.window.listener.AutoUploadBtnActionListener;
 import com.paletter.client.hotdeploy.window.listener.ClassNameTextKeyListener;
 import com.paletter.client.hotdeploy.window.listener.ConnTestBtnActionListener;
 import com.paletter.client.hotdeploy.window.listener.DeleteConfBtnActionListener;
@@ -23,7 +22,6 @@ public class ShowWindow {
 			HotDeployClientWindow window = new HotDeployClientWindow();
 			
 			window.getUploadBtn().addActionListener(new UploadBtnActionListener(window));
-			window.getAutoUploadBtn().addActionListener(new AutoUploadBtnActionListener(window));
 			window.getSaveBtn().addActionListener(new SaveConfBtnActionListener(window));
 			window.getDeleteBtn().addActionListener(new DeleteConfBtnActionListener(window));
 			window.getConnTestBtn().addActionListener(new ConnTestBtnActionListener(window));

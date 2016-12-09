@@ -17,7 +17,9 @@ public class WakeHotkeyListener implements HotkeyListener {
 	@Override
 	public void onHotKey(int identifier) {
 		if(identifier == WAKE_HOTKEY_CODE) {
+			window.setVisible(false);
 			window.setVisible(true);
+			window.getConsoleText().setText("");
 			window.getClassNameText().requestFocus();
 		}
 	}

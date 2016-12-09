@@ -48,7 +48,6 @@ public class HotDeployClientWindow extends JFrame {
 	private JTextField consoleText = new JTextField();;
 	
 	private JButton uploadBtn = new JButton("Upload");
-	private JButton autoUploadBtn = new JButton("AutoUpload");
 	private JButton saveBtn = new JButton("Save");
 	private JButton deleteBtn = new JButton("Delete");
 	private JButton connTestBtn = new JButton("ConnTest");
@@ -64,8 +63,6 @@ public class HotDeployClientWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		initTextCompoents();
-		
-		loadMenu();
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
@@ -110,17 +107,6 @@ public class HotDeployClientWindow extends JFrame {
 		}
 	}
 	
-	private void loadMenu() {
-//		JMenuBar menuBar = new JMenuBar();
-//		JMenu testMenu = new JMenu("Test");
-//		JMenuItem mi = new JMenuItem("item1");
-//		testMenu.add(mi);
-//		
-//		menuBar.add(testMenu);
-//		
-//		setJMenuBar(menuBar);
-	}
-	
 	private void loadClassNamePart(JPanel panel) {
 		JLabel classNameLabel = new JLabel("ClassName:");
 		classNameLabel.setBounds(DEFAULT_LABEL_X, ORIG_Y, DEFAULT_LABEL_WIDTH, DEFAULT_HEIGHT);
@@ -129,7 +115,6 @@ public class HotDeployClientWindow extends JFrame {
 		panel.add(classNameText);
 		uploadBtn.setBounds(DEFAULT_TEXT_X + DEFAULT_TEXT_WIDTH + 5, ORIG_Y, 80, DEFAULT_HEIGHT);
 		panel.add(uploadBtn);
-		
 	}
 	
 	private Integer loadSessionConfPart(JPanel panel, Integer gapRadix) {
@@ -269,14 +254,6 @@ public class HotDeployClientWindow extends JFrame {
 
 	public JTextField getRootPathText() {
 		return rootPathText;
-	}
-
-	public JButton getAutoUploadBtn() {
-		return autoUploadBtn;
-	}
-
-	public void setAutoUploadBtn(JButton autoUploadBtn) {
-		this.autoUploadBtn = autoUploadBtn;
 	}
 
 	public void setRootPathText(JTextField rootPathText) {
