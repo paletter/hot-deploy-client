@@ -37,8 +37,8 @@ public class HotDeployWindowListener extends WindowAdapter {
 			
 			System.exit(0);
 		} catch (Exception e2) {
-			e2.printStackTrace();
 			window.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			e2.printStackTrace();
 		}
 	}
 

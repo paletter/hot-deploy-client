@@ -29,8 +29,8 @@ public class ChooseClassLabelClickListener implements MouseListener {
 			chooseWindow.setVisible(false);
 			
 		} catch (Exception e2) {
-			e2.printStackTrace();
 			mainWindow.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			e2.printStackTrace();
 		}
 	}
 

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
-import com.paletter.client.hotdeploy.window.upload.SFTPUtil;
+import com.paletter.client.hotdeploy.window.util.SFTPUtil;
 
 public class ConnTestBtnActionListener implements ActionListener {
 
@@ -30,8 +30,8 @@ public class ConnTestBtnActionListener implements ActionListener {
 			
 			window.getConsoleText().setText("Connection Success");
 		} catch (Exception e2) {
-			e2.printStackTrace();
 			window.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			e2.printStackTrace();
 		}
 	}
 

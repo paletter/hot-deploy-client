@@ -35,8 +35,8 @@ public class UploadBtnActionListener implements ActionListener {
 			}
 			
 		} catch (Exception e2) {
-			e2.printStackTrace();
 			window.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			e2.printStackTrace();
 		}
 	}
 	

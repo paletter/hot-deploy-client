@@ -28,8 +28,8 @@ public class DeleteConfBtnActionListener implements ActionListener {
 			
 			window.getConsoleText().setText("Success. Save to " + XmlDBContext.getXmlFilePath("session.xml"));
 		} catch (Exception e2) {
-			e2.printStackTrace();
 			window.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			e2.printStackTrace();
 		}
 	}
 }

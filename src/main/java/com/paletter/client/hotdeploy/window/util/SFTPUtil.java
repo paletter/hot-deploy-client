@@ -1,4 +1,4 @@
-package com.paletter.client.hotdeploy.window.upload;
+package com.paletter.client.hotdeploy.window.util;
 
 import java.io.File;
 import java.io.FileInputStream;

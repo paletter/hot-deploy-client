@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
-import com.paletter.client.hotdeploy.window.upload.SFTPUtil;
+import com.paletter.client.hotdeploy.window.util.SFTPUtil;
 
 public class ClassUploadLogic {
 
