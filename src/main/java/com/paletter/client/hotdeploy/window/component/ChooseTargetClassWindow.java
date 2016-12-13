@@ -3,10 +3,12 @@ package com.paletter.client.hotdeploy.window.component;
 import java.io.File;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.paletter.client.hotdeploy.window.listener.ChooseAllClassBtnActionListener;
 import com.paletter.client.hotdeploy.window.listener.ChooseClassLabelClickListener;
 
 public class ChooseTargetClassWindow extends JFrame {
@@ -39,6 +41,14 @@ public class ChooseTargetClassWindow extends JFrame {
 			
 			windowHeight += 60;
 		}
+		
+		JButton chooseAllBtn = new JButton("Upload All");
+		chooseAllBtn.setBounds(10, (targetFileList.size() + 1) * 20 + 10, 120, 20);
+		chooseAllBtn.addActionListener(new ChooseAllClassBtnActionListener(window, this, targetFileList));
+		
+		panel.add(chooseAllBtn);
+		
+		windowHeight += 30;
 		
 		setSize(WINDOW_WIDTH, windowHeight);
 		

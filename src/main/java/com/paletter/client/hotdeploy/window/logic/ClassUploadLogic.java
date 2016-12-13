@@ -72,6 +72,8 @@ public class ClassUploadLogic {
 			className = className + ".class";
 		}
 		
+		String mainFileName = className.split("\\.")[0];
+		
 		for(File file : files) {
 			
 			if(file.isDirectory()) {
@@ -80,7 +82,7 @@ public class ClassUploadLogic {
 			
 			if(file.isFile()) {
 				
-				if(file.getName().equals(className)) {
+				if(file.getName().equals(className) || file.getName().indexOf(mainFileName + "$") == 0) {
 					targetFileList.add(file);
 				}
 			}
