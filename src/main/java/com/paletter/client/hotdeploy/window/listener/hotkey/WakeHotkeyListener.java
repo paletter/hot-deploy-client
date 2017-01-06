@@ -1,4 +1,4 @@
-package com.paletter.client.hotdeploy.window.listener;
+package com.paletter.client.hotdeploy.window.listener.hotkey;
 
 import com.melloware.jintellitype.HotkeyListener;
 import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
@@ -19,8 +19,8 @@ public class WakeHotkeyListener implements HotkeyListener {
 		if(identifier == WAKE_HOTKEY_CODE) {
 			window.setVisible(false);
 			window.setVisible(true);
-			window.getConsoleText().setText("");
-			window.getClassNameText().requestFocus();
+			window.setConsoleText("");
+			window.uploadClassPanel.getClassNameText().requestFocus();
 		}
 	}
 	

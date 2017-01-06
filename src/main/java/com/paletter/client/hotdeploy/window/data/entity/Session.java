@@ -7,6 +7,7 @@ public class Session {
 	private String session;
 	private String serverHost;
 	private String rootPath;
+	private String htmlRootPath;
 	private String project;
 	private String targetPath;
 	private String uploadPath;
@@ -84,6 +85,14 @@ public class Session {
 
 	public void setUploadPath(String uploadPath) {
 		this.uploadPath = uploadPath;
+	}
+
+	public String getHtmlRootPath() {
+		return htmlRootPath;
+	}
+
+	public void setHtmlRootPath(String htmlRootPath) {
+		this.htmlRootPath = htmlRootPath;
 	}
 	
 }

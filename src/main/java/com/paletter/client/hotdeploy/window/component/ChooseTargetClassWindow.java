@@ -8,20 +8,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.paletter.client.hotdeploy.window.listener.ChooseAllClassBtnActionListener;
-import com.paletter.client.hotdeploy.window.listener.ChooseClassLabelClickListener;
+import com.paletter.client.hotdeploy.window.component.panel.UploadClassPanel;
+import com.paletter.client.hotdeploy.window.listener.panel.ChooseAllClassBtnActionListener;
+import com.paletter.client.hotdeploy.window.listener.panel.ChooseClassLabelClickListener;
 
 public class ChooseTargetClassWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private HotDeployClientWindow window;
+	private UploadClassPanel uploadClassPanel;
 	private Integer WINDOW_WIDTH = 600;
 	
-	public ChooseTargetClassWindow(HotDeployClientWindow window, List<File> targetFileList) {
+	public ChooseTargetClassWindow(UploadClassPanel uploadClassPanel, List<File> targetFileList) {
 		super();
 		
-		this.window = window;
+		this.uploadClassPanel = uploadClassPanel;
 		setTitle("ChooseTargetClass");
 		
 		JPanel panel = new JPanel();
@@ -35,7 +36,7 @@ public class ChooseTargetClassWindow extends JFrame {
 			JLabel fileLabel = new JLabel(file.getPath().substring(file.getPath().indexOf("com\\")));
 			fileLabel.setBounds(10, (i + 1) * 20, 1000, 20);
 			
-			fileLabel.addMouseListener(new ChooseClassLabelClickListener(window, this, file));
+			fileLabel.addMouseListener(new ChooseClassLabelClickListener(this, file));
 			
 			panel.add(fileLabel);
 			
@@ -44,7 +45,7 @@ public class ChooseTargetClassWindow extends JFrame {
 		
 		JButton chooseAllBtn = new JButton("Upload All");
 		chooseAllBtn.setBounds(10, (targetFileList.size() + 1) * 20 + 10, 120, 20);
-		chooseAllBtn.addActionListener(new ChooseAllClassBtnActionListener(window, this, targetFileList));
+		chooseAllBtn.addActionListener(new ChooseAllClassBtnActionListener(this, targetFileList));
 		
 		panel.add(chooseAllBtn);
 		
@@ -55,4 +56,13 @@ public class ChooseTargetClassWindow extends JFrame {
 		this.add(panel);
 		this.setVisible(true);
 	}
+
+	public UploadClassPanel getUploadClassPanel() {
+		return uploadClassPanel;
+	}
+
+	public void setUploadClassPanel(UploadClassPanel uploadClassPanel) {
+		this.uploadClassPanel = uploadClassPanel;
+	}
+	
 }

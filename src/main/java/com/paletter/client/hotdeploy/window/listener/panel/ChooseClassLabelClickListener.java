@@ -1,21 +1,18 @@
-package com.paletter.client.hotdeploy.window.listener;
+package com.paletter.client.hotdeploy.window.listener.panel;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 
 import com.paletter.client.hotdeploy.window.component.ChooseTargetClassWindow;
-import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
 import com.paletter.client.hotdeploy.window.logic.ClassUploadLogic;
 
 public class ChooseClassLabelClickListener implements MouseListener {
 
-	private HotDeployClientWindow mainWindow;
 	private ChooseTargetClassWindow chooseWindow;
 	private File classFile;
 	
-	public ChooseClassLabelClickListener(HotDeployClientWindow mainWindow, ChooseTargetClassWindow chooseWindow, File classFile) {
-		this.mainWindow = mainWindow;
+	public ChooseClassLabelClickListener(ChooseTargetClassWindow chooseWindow, File classFile) {
 		this.chooseWindow = chooseWindow;
 		this.classFile = classFile;
 	}
@@ -24,12 +21,12 @@ public class ChooseClassLabelClickListener implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		try {
 			
-			ClassUploadLogic.upload(mainWindow, classFile);
+			ClassUploadLogic.upload(chooseWindow.getUploadClassPanel(), classFile);
 			
 			chooseWindow.setVisible(false);
 			
 		} catch (Exception e2) {
-			mainWindow.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			chooseWindow.getUploadClassPanel().setConsoleText("Fail. catch e: " + e2.getMessage());
 			e2.printStackTrace();
 		}
 	}

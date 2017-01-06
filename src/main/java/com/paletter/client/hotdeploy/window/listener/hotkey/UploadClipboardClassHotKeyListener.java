@@ -1,24 +1,24 @@
-package com.paletter.client.hotdeploy.window.listener;
+package com.paletter.client.hotdeploy.window.listener.hotkey;
 
 import java.io.File;
 import java.util.List;
 
 import com.melloware.jintellitype.HotkeyListener;
 import com.paletter.client.hotdeploy.window.component.ChooseTargetClassWindow;
-import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
+import com.paletter.client.hotdeploy.window.component.panel.UploadClassPanel;
 import com.paletter.client.hotdeploy.window.logic.ClassUploadLogic;
 import com.paletter.client.hotdeploy.window.util.ClipboardUtil;
 import com.paletter.client.hotdeploy.window.util.HotDeployComUtil;
 
-public class UploadClipboardHotKeyListener implements HotkeyListener {
+public class UploadClipboardClassHotKeyListener implements HotkeyListener {
 
 	public static Integer UPLOAD_FROM_CLIPBOARD_HOTKEY_CODE = 2;
 	
-	private HotDeployClientWindow window;
+	private UploadClassPanel panel;
 
-	public UploadClipboardHotKeyListener(HotDeployClientWindow window) {
+	public UploadClipboardClassHotKeyListener(UploadClassPanel panel) {
 		super();
-		this.window = window;
+		this.panel = panel;
 	}
 
 	@Override
@@ -30,26 +30,26 @@ public class UploadClipboardHotKeyListener implements HotkeyListener {
 				
 				if(HotDeployComUtil.isNotNullOrEmpty(clipboardText)) {
 				
-					window.getConsoleText().setText("");
-					window.getClassNameText().setText(clipboardText);
+					panel.setConsoleText("");
+					panel.getClassNameText().setText(clipboardText);
 					
-					List<File> targetFileList = ClassUploadLogic.findTargetFileList(window);
+					List<File> targetFileList = ClassUploadLogic.findTargetFileList(panel);
 	
 					if(targetFileList.size() == 1) {
-						ClassUploadLogic.upload(window, targetFileList.get(0));
+						ClassUploadLogic.upload(panel, targetFileList.get(0));
 					}
 					
 					if(targetFileList.size() > 1) {
-						new ChooseTargetClassWindow(window, targetFileList);
+						new ChooseTargetClassWindow(panel, targetFileList);
 					}
 					
-					window.setVisible(false);
-					window.setVisible(true);
-					window.getClassNameText().requestFocus();
+					panel.setVisible(false);
+					panel.setVisible(true);
+					panel.getClassNameText().requestFocus();
 				}
 				
 			} catch (Exception e2) {
-				window.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+				panel.setConsoleText("Fail. catch e: " + e2.getMessage());
 				e2.printStackTrace();
 			}
 		}

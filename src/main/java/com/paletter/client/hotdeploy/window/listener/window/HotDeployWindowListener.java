@@ -1,4 +1,4 @@
-package com.paletter.client.hotdeploy.window.listener;
+package com.paletter.client.hotdeploy.window.listener.window;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -22,22 +22,22 @@ public class HotDeployWindowListener extends WindowAdapter {
 		
 		try {
 
-			window.getConsoleText().setText("");
+			window.setConsoleText("");
 
 			DefaultConf defaultConf = new DefaultConf();
 			defaultConf.setId(DefaultConf.DEFAULT_ID);
-			defaultConf.setKeyPath(window.getKeyPathText().getText());
-			if(HotDeployComUtil.isNotNullOrEmpty(window.getSessionListComponent().getSelectedValue())) {
-				defaultConf.setSession(window.getSessionListComponent().getSelectedValue());
-			} else if(HotDeployComUtil.isNotNullOrEmpty(window.getSessionText().getText())) {
-				defaultConf.setSession(window.getSessionText().getText());
+			defaultConf.setKeyPath(window.uploadClassPanel.getKeyPathText().getText());
+			if(HotDeployComUtil.isNotNullOrEmpty(window.uploadClassPanel.getSessionListComponent().getSelectedValue())) {
+				defaultConf.setSession(window.uploadClassPanel.getSessionListComponent().getSelectedValue());
+			} else if(HotDeployComUtil.isNotNullOrEmpty(window.uploadClassPanel.getSessionText().getText())) {
+				defaultConf.setSession(window.uploadClassPanel.getSessionText().getText());
 			}
 			
-			DefaultConfDao.saveDefaultConf(window.getXmlDBPathText().getText(), defaultConf);
+			DefaultConfDao.saveDefaultConf(window.uploadClassPanel.getXmlDBPathText().getText(), defaultConf);
 			
 			System.exit(0);
 		} catch (Exception e2) {
-			window.getConsoleText().setText("Fail. catch e: " + e2.getMessage());
+			window.setConsoleText("Fail. catch e: " + e2.getMessage());
 			e2.printStackTrace();
 		}
 	}
