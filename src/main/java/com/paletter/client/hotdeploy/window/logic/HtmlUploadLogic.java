@@ -43,14 +43,6 @@ public class HtmlUploadLogic {
 			throw new Exception("jsFileList.size() > 1");
 		}
 		
-		// TODO
-//		for(File f : targetFileList) {
-//			
-//			System.out.println(f.getPath());
-//			
-//			System.out.println(f.getPath().substring(f.getPath().lastIndexOf("\\") + 1));
-//		}
-		
 		Map<String, File> targetFileMap = new HashMap<String, File>();
 		if(htmlFileList.size() > 0) {
 			targetFileMap.put("html", htmlFileList.get(0));
@@ -76,7 +68,8 @@ public class HtmlUploadLogic {
 		
 		File htmlFile = targetFileMap.get("html");
 		if(htmlFile != null && htmlFile.isFile()) {
-			SFTPUtil.upload(uploadPath, htmlFile.getName(), htmlFile);
+			String htmlFilePath = htmlFile.getPath().replace("\\", "/");
+			SFTPUtil.upload(uploadPath + htmlFilePath.substring(htmlFilePath.indexOf("/webapp") + 7, htmlFilePath.lastIndexOf("/") + 1), htmlFile.getName(), htmlFile);
 			result += "\n SUCCESS. Upload file:" + htmlFile.getName();
 		}
 		
