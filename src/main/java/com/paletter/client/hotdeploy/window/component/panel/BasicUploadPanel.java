@@ -70,7 +70,7 @@ public class BasicUploadPanel extends JPanel {
 	}
 	
 	private void initTextCompoents() {
-		xmlDBPathText = new JTextField("D:/01.ProgramFiles/XmlDB/resource");
+		xmlDBPathText = new JTextField("D:/Zemp/XmlDB/resource");
 		
 		try {
 			
