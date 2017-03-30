@@ -1,2 +1,2 @@
 @echo off
-start javaw -jar target\hot-deploy.jar
+start javaw -jar D:\ProjectPath\git\hot-deploy-client\target\hot-deploy.jar
