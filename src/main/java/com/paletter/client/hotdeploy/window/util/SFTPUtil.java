@@ -47,7 +47,7 @@ public class SFTPUtil {
 		
 		try {
 			
-			if(sftp != null && sftp.isConnected()) {
+			if(sftp != null && sftp.isConnected() && session.getHost().equals(host)) {
 				return;
 			}
 			
