@@ -1,5 +1,6 @@
 package com.paletter.client.hotdeploy.window.component.panel;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -220,6 +221,7 @@ public class BasicUploadPanel extends JPanel {
 	
 	public void reloadSessionList() {
 		List<String> sessionIdList = SessionDao.queryAllSessionId(xmlDBPathText.getText());
+		Collections.sort(sessionIdList);
 		String[] sessions = {};
 		sessions = sessionIdList.toArray(sessions);
 		sessionListComponent.setListData(sessions);
