@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import com.paletter.client.hotdeploy.window.component.HotDeployClientWindow;
@@ -54,6 +55,7 @@ public class BasicUploadPanel extends JPanel {
 	protected JButton connTestBtn = new JButton("ConnTest");
 	
 	protected JList<String> sessionListComponent;
+	protected JScrollPane sessionJScrollPaneComponent;
 	
 	public BasicUploadPanel() {
 		
@@ -213,10 +215,14 @@ public class BasicUploadPanel extends JPanel {
 	
 	private void loadSessionList() {
 		sessionListComponent = new JList<String>();
+		sessionJScrollPaneComponent = new JScrollPane();
+		
+		sessionJScrollPaneComponent.setBounds(700, 10, 200, HotDeployClientWindow.WINDOW_HEIGHT - 100);
+		sessionJScrollPaneComponent.setViewportView(sessionListComponent);
 		
 		reloadSessionList();
-		sessionListComponent.setBounds(700, 10, 200, HotDeployClientWindow.WINDOW_HEIGHT - 100);
-		add(sessionListComponent);
+		sessionListComponent.setAutoscrolls(true);
+		add(sessionJScrollPaneComponent);
 	}
 	
 	public void reloadSessionList() {
@@ -225,6 +231,7 @@ public class BasicUploadPanel extends JPanel {
 		String[] sessions = {};
 		sessions = sessionIdList.toArray(sessions);
 		sessionListComponent.setListData(sessions);
+		sessionListComponent.setAutoscrolls(true);
 	}
 
 	private void loadListener() {
