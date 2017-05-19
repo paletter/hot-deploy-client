@@ -13,11 +13,13 @@ public class ClassUploadLogic {
 
 		String inputClassName = panel.getClassNameText().getText();
 		String rootPath = panel.getClassRootPathText().getText();
-		String project = panel.getProjectText().getText();
+//		String project = panel.getProjectText().getText();
 		
-		File projectFileDir = findProjectFileDir(rootPath, project);
-		if(projectFileDir == null) {
-			throw new Exception("Fail. projectFileDir is null");
+//		File projectFileDir = findProjectFileDir(rootPath, project);
+		File projectFileDir = new File(rootPath);
+		if(!projectFileDir.isDirectory()) {
+//			throw new Exception("Fail. projectFileDir is null");
+			throw new Exception("Fail. projectFileDir is not directory");
 		}
 		
 		List<File> targetFileList = new ArrayList<File>();
