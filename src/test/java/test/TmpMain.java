@@ -9,12 +9,21 @@ public class TmpMain {
 
 	public static void main(String[] args) {
 
-		List<String> l = new ArrayList<String>();
+		int[] a = {9, 8, 2, 5, 1, 11, 3};
 		
-		Collections.sort(l);
+		int min = 0;
 		
-		for(String s : l) {
-			System.out.println(s);
+		for(int j = 0; j < a.length; j ++) {
+			if(a[min] > a[j]) min = j;
 		}
+		
+		System.out.println(a[min]);
+		
+//		for(int i = 0; i < a.length; i ++) {
+//			min = i;
+//			for(int j = i; j < a.length; j ++) {
+//				if(a[min] > a[j]) min = j;
+//			}
+//		}
 	}
 }
